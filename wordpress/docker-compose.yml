@@ -1,11 +1,18 @@
 wordpress:
-  image: wordpress:4.4-fpm
+  image: wordpress:4.4
   links:
     - db:mysql
   ports:
-    - 8080:80
+    - 8888:80
+  environment:
+    WORDPRESS_DB_HOST: 192.168.33.131
+    WORDPRESS_DB_USER: root
+    WORDPRESS_DB_PASSWORD: root
+
 
 db:
-  image: mariadb:10.1
+  image: mysql:5.5
   environment:
-    MYSQL_ROOT_PASSWORD: example
+    MYSQL_ROOT_PASSWORD: root
+  ports:
+    - 3306:3306
