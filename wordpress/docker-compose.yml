@@ -8,7 +8,8 @@ wordpress:
     WORDPRESS_DB_HOST: 192.168.33.131
     WORDPRESS_DB_USER: root
     WORDPRESS_DB_PASSWORD: root
-
+  volumes:
+        - /var/www/html:/var/www/html
 
 db:
   image: mysql:5.5
@@ -16,3 +17,5 @@ db:
     MYSQL_ROOT_PASSWORD: root
   ports:
     - 3306:3306
+  volumes:
+        - /var/lib/mysql:/var/lib/mysql
